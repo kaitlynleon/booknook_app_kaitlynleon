@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Book Nook</title>
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/0b016f856a.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  </head>
+  <body>
+    <div class="container-fluid mt-4">
+      <h1 class="display-4 text-center">
+        My<span class="text-primary">Book</span>Nook
+        <i class="fa-solid fa-book fa-lg fa-fade"></i>
+      </h1>
+      <!-- Title -->
+      <form action="" id="book-form" class="row justify-content-center">
+        <div class="form-group col-5">
+          <label for="title" class="title">Title</label>
+          <input type="text" id="title" class="form-control" />
+        </div>
+        <!-- Author -->
+
+        <div class="form-group col-5">
+          <label for="author" class="title">Author</label>
+          <input type="text" id="author" class="form-control" />
+        </div>
+
+        <!-- Volume-->
+
+        <div class="form-group col-5">
+          <label for="isbn" class="title">Volume or ID#</label>
+          <input type="text" id="isbn" class="form-control" />
+
+          <!-- Series -->
+          <div class="row justify-content-center">
+            <label for="series" class="title">Series</label>
+            <input type="text" id="series" class="form-control" />
+          </div>
+
+          <!-- submit button -->
+          <div class="row justify-content-center">
+            <input
+              type="submit"
+              value="Add Book"
+              class="btn-primary btn-lg btn-block"
+            />
+          </div>
+        </div>
+      </form>
+      <table class="table table-striped mt-5">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>ISBN#</th>
+            <th>Remove</th>
+          </tr>
+        </thead>
+        <tbody id="book-list"></tbody>
+      </table>
+
+      <br />
+      <br />
+      <br />
+      <!-- test -->
+      <div class="search-container col-12">
+      <div class="book-search row justify-content-center">
+      <label for="search" class="search">Search By Author</label>
+      <input type="search" id="search"  />
+    </div>
+      
+
+      
+        
+          <div class = "row justify-content-center">
+          <input
+            type="submit2"
+            value="Search"
+            type="button"
+            onclick="authorSearch()"
+            class="btn-search btn hover btn-primary"
+          />
+
+          <div id="msg2">
+            <pre>Search Results:</pre>
+          </div>
+        </div>
+        </div>
+      </div>
+      </div>
+    
+
+    <script src="app.js"></script>
+  </body>
+</html>
