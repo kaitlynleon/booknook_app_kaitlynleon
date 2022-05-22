@@ -160,10 +160,10 @@ function authorSearch() {
 
   for (let { author } of data) {
     if (userSearch === author) {
-      console.log(author + " was found in your collection");
+      
       let pre = document.querySelector("#msg2 pre");
       pre.textContent = "\n" + JSON.stringify(author, "\t", 2);
-
+      console.log(author + " was found in your collection");
       inCollection();
     }
 
@@ -181,16 +181,18 @@ function authorSearch() {
 //this function will print the entire collection
 function printstoredCollection() {
   var data = JSON.parse(localStorage.getItem("books"));
-  document.getElementById("my-books").innerHTML = 'data';
+  
   console.log("this is the entire collection:" + JSON.stringify(data));
-  console.log();
+  document.getElementById("my-books").innerText=data;
 }
 //clear search for new user entry
 function clearSearchBar() {
   document.querySelector("#search").value = "";
 }
 
-function sortBooks() {}
+function sortBooks() {
+  console.log('sorted')
+}
 
 //gives message to user that the author is not in the collection
 function inCollection() {
@@ -201,7 +203,7 @@ function inCollection() {
 }
 //gives message to user that the author is not in the collection
 function notInCollection() {
-  $("#customModal")
+  $("#2customModal")
     .html("Sorry, the Author you requested is not your Book Collection.")
     .delay(3000)
     .fadeOut(300);
