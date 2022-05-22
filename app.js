@@ -224,6 +224,10 @@ function windowOnClick(event) {
   }
 }
 
+function clearSearchBar(){
+  document.querySelector("#search").value = "";
+}
+
 trigger.addEventListener("click", toggleModal);
 closeButton.addEventListener("click", toggleModal);
 window.addEventListener("click", windowOnClick);
