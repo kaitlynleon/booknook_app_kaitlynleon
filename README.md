@@ -23,5 +23,5 @@ local storage. The user will be able to perform the following functions:
 
 >>Modifications Made to Source Code: 
 -Additional Methods Implemented (Search, Edit)
--Updated UI (Additional Search Section, Bootstrap Library/Icons, Styling)
+-Updated UI (Additional Search Section, Bootstrap Library/ Font Awesome Icons, Styling)
  

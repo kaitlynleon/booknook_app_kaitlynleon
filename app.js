@@ -91,11 +91,6 @@ class Store {
     localStorage.setItem("books", JSON.stringify(books));
   }
 
-  // static printSearchAuthor(books){
-  //   .each(books), function(index,value){
-  //     $(".app").append("<p>"+value+"<p>");
-  //   }
-  // }
 }
 
 // event: display books
@@ -165,13 +160,32 @@ function authorSearch() {
       console.log(author + " was found in your collection");
       let pre = document.querySelector("#msg2 pre");
       pre.textContent = "\n" + JSON.stringify(author, "\t", 2);
-    } else console.log("this author is not in your collection");
+      setTimeout(() => document.querySelector("#msg2 pre").remove(), 3000).delay(3000).fadeOut(300);
+    } else{
+      if (userSearch !== author) {
+        console.log("this author is not in your collection");
+        $("#customModal").html("this author is not in your collection.").delay(3000).fadeOut(300);
+        
+        
+      }
+    }
+    // clears the search bar for user to search a different book
+    clearSearchBar();
   }
 }
-
 //this print the entire collection
 function printstoredCollection() {
   var data = JSON.parse(localStorage.getItem("books"));
   console.log("this is the entire collection:" + JSON.stringify(data));
   console.log();
 }
+
+function clearSearchBar() {
+  document.querySelector("#search").value = "";
+}
+
+function sortBooks(){
+
+}
+
+

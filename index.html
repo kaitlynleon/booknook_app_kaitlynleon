@@ -71,22 +71,16 @@
       <br />
       <!-- test -->
       <div class="search-container col-12">
-
         <h2 class="display-4 text-center text-primary">
           Search Collection <i class="fa-solid fa-magnifying-glass fa-beat"></i>
-          
         </h2>
 
+        <div class="book-search row justify-content-center">
+          <label for="search" class="search">Search By Author</label>
+          <input type="search" id="search" />
+        </div>
 
-      <div class="book-search row justify-content-center">
-      <label for="search" class="search">Search By Author</label>
-      <input type="search" id="search"  />
-    </div>
-      
-
-      
-        
-          <div class = "row justify-content-center">
+        <div class="row justify-content-center">
           <input
             type="submit2"
             value="Search"
@@ -98,11 +92,10 @@
           <div id="msg2">
             <pre>Search Results:</pre>
           </div>
-        </div>
+          <div id="customModal"></div>
         </div>
       </div>
-      </div>
-    
+    </div>
 
     <script src="app.js"></script>
   </body>
