@@ -27,6 +27,7 @@ class UI {
       <td>${book.author}</td>
       <td>${book.isbn}</td>
       <td><a href="#" class="btn btn-danger btn-sm delete">X</a></td>
+      <td><a href="#" class="btn btn-warning btn-sm delete"><i class="fas fa-edit"></i></a></td>
     `;
 
     list.appendChild(row);
@@ -90,7 +91,6 @@ class Store {
 
     localStorage.setItem("books", JSON.stringify(books));
   }
-
 }
 
 // event: display books
@@ -160,13 +160,15 @@ function authorSearch() {
       console.log(author + " was found in your collection");
       let pre = document.querySelector("#msg2 pre");
       pre.textContent = "\n" + JSON.stringify(author, "\t", 2);
-      setTimeout(() => document.querySelector("#msg2 pre").remove(), 3000).delay(3000).fadeOut(300);
-    } else{
+
+      inCollection();
+    }
+
+    // setTimeout(() => document.querySelector("#msg2 pre"))
+    else {
       if (userSearch !== author) {
         console.log("this author is not in your collection");
-        $("#customModal").html("this author is not in your collection.").delay(3000).fadeOut(300);
-        
-        
+        notInCollection();
       }
     }
     // clears the search bar for user to search a different book
@@ -179,13 +181,28 @@ function printstoredCollection() {
   console.log("this is the entire collection:" + JSON.stringify(data));
   console.log();
 }
-
+//clear search for new user entry
 function clearSearchBar() {
   document.querySelector("#search").value = "";
 }
 
-function sortBooks(){
+function sortBooks() {}
+
+
+
+
+//gives message to user that the author is not in the collection
+function inCollection() {
+  $("#customModal")
+    .html("This Author is in your Book Collection!")
+    .delay(3000)
+    .fadeOut(300);
 
 }
-
-
+//gives message to user that the author is not in the collection
+function notInCollection() {
+  $("#customModal")
+    .html("Sorry, the Author you requested is not your Book Collection.")
+    .delay(3000)
+    .fadeOut(300);
+}

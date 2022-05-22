@@ -61,22 +61,23 @@
             <th>Author</th>
             <th>ISBN#</th>
             <th>Remove</th>
+            <th>Edit</th>
           </tr>
         </thead>
         <tbody id="book-list"></tbody>
       </table>
 
       <br />
-      <br />
-      <br />
-      <!-- test -->
+   
+     
+      <!-- Search Collection -->
       <div class="search-container col-12">
         <h2 class="display-4 text-center text-primary">
           Search Collection <i class="fa-solid fa-magnifying-glass fa-beat"></i>
         </h2>
 
         <div class="book-search row justify-content-center">
-          <label for="search" class="search">Search By Author</label>
+          <label for="search" class="search"></label>
           <input type="search" id="search" />
         </div>
 
@@ -89,10 +90,20 @@
             class="btn-search btn hover btn-primary"
           />
 
-          <div id="msg2">
-            <pre>Search Results:</pre>
+          <div id="customModal">
+            
           </div>
-          <div id="customModal"></div>
+
+          <div id="msg2">
+            <pre>
+              <center>Search Results:</center>
+   
+            </pre>
+
+            <button type="button" class="btn-results btn btn-secondary btn-sm">
+              Close
+            </button>
+          </div>
         </div>
       </div>
     </div>
