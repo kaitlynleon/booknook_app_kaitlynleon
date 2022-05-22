@@ -180,7 +180,7 @@ function authorSearch() {
   }
 }
 //this function will print the entire collection
-function printstoredCollection() {
+function printStoredCollection() {
   var keys = Object.keys(localStorage);
   var values = Object.values(localStorage);;
   console.log('These are the key value pairs in local storage: ' + keys + values)
@@ -204,6 +204,7 @@ function inCollection() {
     .html("This Author is in your Book Collection!")
     .delay(3000)
     .fadeOut(300);
+    
 }
 //gives message to user that the author is not in the collection
 function notInCollection() {
@@ -221,7 +222,7 @@ const closeButton = document.querySelector(".book-close-button");
 
 function toggleModal() {
     modal.classList.toggle("book-show-modal");
-    printstoredCollection()
+    printstoredCollection();
 }
 
 function windowOnClick(event) {
@@ -233,3 +234,39 @@ function windowOnClick(event) {
 trigger.addEventListener("click", toggleModal);
 closeButton.addEventListener("click", toggleModal);
 window.addEventListener("click", windowOnClick);
+
+// **********************************************************************//
+// the code below has not been integrated into the UI yet but can still be tracked in the console and application tabs
+
+//this is a collection of books that already exist in the collection 
+class existingBook {
+  constructor(exTitle, exAuthor, exSeries) {
+    this.exTitle = exTitle;
+    this.exAuthor = exAuthor;
+    this.exSeries = exSeries;
+  }
+}
+
+
+//creating existing book objects to add to an exisingBooks array in local storage
+const existingBooks = JSON.parse(localStorage.getItem('existingBooks')) || [];
+const myFirstBook = new existingBook('1', 'Bisco Hatori', 'Ouron High School Host Club');
+const mySecondBook = new existingBook('2', 'Arina Tenamura', 'Sakura Hime Kaden');
+const myThirdBook = new existingBook('3', 'Masashi Kishimoto', 'Naruto');
+const myFourthBook = new existingBook('10', 'Kaori Yuki', 'Angel Sanctuary');
+existingBooks.push(myFirstBook, mySecondBook, myFourthBook);
+localStorage.setItem('existingBooks', JSON.stringify(existingBooks));
+
+
+//sort existing books in local storage by alphabetical order of series name
+existingBooks.sort(function(a,b) {
+  if(b.exSeries > a.exSeries){
+    return 1;
+  } else{
+    return -1;
+  }
+});
+console.log('These are the exisiting books in alphabetical order by the name of the series: ');
+console.log(existingBooks);
+printStoredCollection();
+
