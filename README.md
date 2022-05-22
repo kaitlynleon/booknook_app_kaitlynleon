@@ -9,10 +9,10 @@ Using JavaScript, HTML, and CSS, this Book Collection Program will store the use
 local storage. The user will be able to perform the following functions: 
 
 -[Add] Book to Collection
--[Edit] Existing Book in Collection
 -[Delete] Book from Collection
--[Search] Book or Author in Collection
+-[Search] Series in Collection
 -[Print] All Books and Authors in Collection
+-[Sort] Existing Books in Collection
 
 
 >>Sources: 

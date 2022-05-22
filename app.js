@@ -108,7 +108,7 @@ document.querySelector("#book-form").addEventListener("submit", (e) => {
   const series = document.querySelector("#series").value;
 
   // validation
-  if (title === "" || author === "" || series === "" ) {
+  if (title === "" || author === "" || series === "") {
     // show NOT VALIDATED alert
     UI.showAlert("All fields must be completed to add a book!", "danger");
   } else {
@@ -153,7 +153,6 @@ document.querySelector("#search").addEventListener("submit2", (e) => {
 
 //add preexising books to the collection to test
 
-
 function authorSearch() {
   //store the user input in a variable
   const userSearch = document.querySelector("#search").value;
@@ -161,15 +160,12 @@ function authorSearch() {
 
   for (let { author } of data) {
     if (userSearch === author) {
-      
       let pre = document.querySelector("#msg2 pre");
       pre.textContent = "\n" + JSON.stringify(author, "\t", 2);
       console.log(author + " was found in your collection");
-      console.log(data)
+      console.log(data);
       inCollection();
-    }
-
-    else {
+    } else {
       if (userSearch !== author) {
         console.log("this author is not in your collection");
         notInCollection();
@@ -182,20 +178,18 @@ function authorSearch() {
 //this function will print the entire collection
 function printStoredCollection() {
   var keys = Object.keys(localStorage);
-  var values = Object.values(localStorage);;
-  console.log('These are the key value pairs in local storage: ' + keys + values)
+  var values = Object.values(localStorage);
+  console.log(
+    "These are the key value pairs in local storage: " + keys + values
+  );
   // var data = JSON.parse(localStorage.getItem("books"));
-  
+
   // console.log("this is the entire collection:" + JSON.stringify(data));
   // document.getElementById("my-books").innerText=data;
 }
-//clear search for new user entry
-function clearSearchBar() {
-  document.querySelector("#search").value = "";
-}
 
 function sortBooks() {
-  console.log('sorted')
+  console.log("sorted");
 }
 
 //gives message to user that the author is not in the collection
@@ -204,7 +198,6 @@ function inCollection() {
     .html("This Author is in your Book Collection!")
     .delay(3000)
     .fadeOut(300);
-    
 }
 //gives message to user that the author is not in the collection
 function notInCollection() {
@@ -214,21 +207,21 @@ function notInCollection() {
     .fadeOut(300);
 }
 
-// book collection modal 
+// book collection modal
 
 const modal = document.querySelector(".book-modal");
 const trigger = document.querySelector(".trigger");
 const closeButton = document.querySelector(".book-close-button");
 
 function toggleModal() {
-    modal.classList.toggle("book-show-modal");
-    printstoredCollection();
+  modal.classList.toggle("book-show-modal");
+  printstoredCollection();
 }
 
 function windowOnClick(event) {
-    if (event.target === modal) {
-        toggleModal();
-    }
+  if (event.target === modal) {
+    toggleModal();
+  }
 }
 
 trigger.addEventListener("click", toggleModal);
@@ -238,7 +231,7 @@ window.addEventListener("click", windowOnClick);
 // **********************************************************************//
 // the code below has not been integrated into the UI yet but can still be tracked in the console and application tabs
 
-//this is a collection of books that already exist in the collection 
+//this is a collection of books that already exist in the collection
 class existingBook {
   constructor(exTitle, exAuthor, exSeries) {
     this.exTitle = exTitle;
@@ -247,26 +240,33 @@ class existingBook {
   }
 }
 
-
 //creating existing book objects to add to an exisingBooks array in local storage
-const existingBooks = JSON.parse(localStorage.getItem('existingBooks')) || [];
-const myFirstBook = new existingBook('1', 'Bisco Hatori', 'Ouron High School Host Club');
-const mySecondBook = new existingBook('2', 'Arina Tenamura', 'Sakura Hime Kaden');
-const myThirdBook = new existingBook('3', 'Masashi Kishimoto', 'Naruto');
-const myFourthBook = new existingBook('10', 'Kaori Yuki', 'Angel Sanctuary');
+const existingBooks = JSON.parse(localStorage.getItem("existingBooks")) || [];
+const myFirstBook = new existingBook(
+  "1",
+  "Bisco Hatori",
+  "Ouron High School Host Club"
+);
+const mySecondBook = new existingBook(
+  "2",
+  "Arina Tenamura",
+  "Sakura Hime Kaden"
+);
+const myThirdBook = new existingBook("3", "Masashi Kishimoto", "Naruto");
+const myFourthBook = new existingBook("10", "Kaori Yuki", "Angel Sanctuary");
 existingBooks.push(myFirstBook, mySecondBook, myFourthBook);
-localStorage.setItem('existingBooks', JSON.stringify(existingBooks));
-
+localStorage.setItem("existingBooks", JSON.stringify(existingBooks));
 
 //sort existing books in local storage by alphabetical order of series name
-existingBooks.sort(function(a,b) {
-  if(b.exSeries > a.exSeries){
+existingBooks.sort(function (a, b) {
+  if (b.exSeries > a.exSeries) {
     return 1;
-  } else{
+  } else {
     return -1;
   }
 });
-console.log('These are the exisiting books in alphabetical order by the name of the series: ');
+console.log(
+  "These are the exisiting books in alphabetical order by the name of the series: "
+);
 console.log(existingBooks);
 printStoredCollection();
-
