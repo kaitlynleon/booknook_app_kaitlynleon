@@ -1,10 +1,10 @@
 // book class: represents a book
 
 class Book {
-  constructor(title, author, isbn) {
+  constructor(title, author, series) {
     this.title = title;
     this.author = author;
-    this.isbn = isbn;
+    this.series = series;
   }
 }
 
@@ -25,7 +25,7 @@ class UI {
     row.innerHTML = `
       <td>${book.title}</td>
       <td>${book.author}</td>
-      <td>${book.isbn}</td>
+      <td>${book.series}</td>
       <td><a href="#" class="btn btn-danger btn-sm delete">X</a></td>
       <td><a href="#" class="btn btn-warning btn-sm delete"><i class="fas fa-edit"></i></a></td>
     `;
@@ -54,7 +54,6 @@ class UI {
   static clearFields() {
     document.querySelector("#title").value = "";
     document.querySelector("#author").value = "";
-    document.querySelector("#isbn").value = "";
     document.querySelector("#series").value = "";
   }
 }
@@ -80,11 +79,11 @@ class Store {
     localStorage.setItem("books", JSON.stringify(books));
   }
 
-  static removeBook(isbn) {
+  static removeBook(series) {
     const books = Store.getBooks();
 
     books.forEach((book, index) => {
-      if (book.isbn === isbn) {
+      if (book.series === series) {
         books.splice(index, 1);
       }
     });
@@ -106,16 +105,15 @@ document.querySelector("#book-form").addEventListener("submit", (e) => {
   // get form values
   const title = document.querySelector("#title").value;
   const author = document.querySelector("#author").value;
-  const isbn = document.querySelector("#isbn").value;
   const series = document.querySelector("#series").value;
 
   // validation
-  if (title === "" || author === "" || isbn === "" || series === "") {
+  if (title === "" || author === "" || series === "" ) {
     // show NOT VALIDATED alert
     UI.showAlert("All fields must be completed to add a book!", "danger");
   } else {
     // instantiate book
-    const book = new Book(title, author, isbn);
+    const book = new Book(title, author, series);
 
     // add book to UI
     UI.addBookToList(book);
@@ -153,6 +151,9 @@ document.querySelector("#search").addEventListener("submit2", (e) => {
 // **********************************************************************//
 //public functions for search, edit, and print functions in local storage
 
+//add preexising books to the collection to test
+
+
 function authorSearch() {
   //store the user input in a variable
   const userSearch = document.querySelector("#search").value;
@@ -164,10 +165,10 @@ function authorSearch() {
       let pre = document.querySelector("#msg2 pre");
       pre.textContent = "\n" + JSON.stringify(author, "\t", 2);
       console.log(author + " was found in your collection");
+      console.log(data)
       inCollection();
     }
 
-    // setTimeout(() => document.querySelector("#msg2 pre"))
     else {
       if (userSearch !== author) {
         console.log("this author is not in your collection");
@@ -180,10 +181,13 @@ function authorSearch() {
 }
 //this function will print the entire collection
 function printstoredCollection() {
-  var data = JSON.parse(localStorage.getItem("books"));
+  var keys = Object.keys(localStorage);
+  var values = Object.values(localStorage);;
+  console.log('These are the key value pairs in local storage: ' + keys + values)
+  // var data = JSON.parse(localStorage.getItem("books"));
   
-  console.log("this is the entire collection:" + JSON.stringify(data));
-  document.getElementById("my-books").innerText=data;
+  // console.log("this is the entire collection:" + JSON.stringify(data));
+  // document.getElementById("my-books").innerText=data;
 }
 //clear search for new user entry
 function clearSearchBar() {
@@ -217,6 +221,7 @@ const closeButton = document.querySelector(".book-close-button");
 
 function toggleModal() {
     modal.classList.toggle("book-show-modal");
+    printstoredCollection()
 }
 
 function windowOnClick(event) {
