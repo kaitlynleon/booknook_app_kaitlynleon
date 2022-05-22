@@ -27,17 +27,17 @@ existingBooks.push(myFirstBook, mySecondBook, myFourthBook);
 localStorage.setItem("existingBooks", JSON.stringify(existingBooks));
 
 //sort existing books in local storage by alphabetical order of series name
-// existingBooks.sort(function (a, b) {
-//   if (b.exSeries > a.exSeries) {
-//     return 1;
-//   } else {
-//     return -1;
-//   }
-// });
-// console.log(
-//   "These are the exisiting books in alphabetical order by the name of the series: "
-// );
-// console.log(existingBooks);
+existingBooks.sort(function (a, b) {
+  if (b.exSeries > a.exSeries) {
+    return 1;
+  } else {
+    return -1;
+  }
+});
+console.log(
+  "These are the exisiting books in alphabetical order by the name of the series: "
+);
+console.log(existingBooks);
 
 // sort existing books by title (volume number)
 existingBooks.sort(function(a,b){

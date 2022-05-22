@@ -188,9 +188,6 @@ function printStoredCollection() {
   // document.getElementById("my-books").innerText=data;
 }
 
-function sortBooks() {
-  console.log("sorted");
-}
 
 //gives message to user that the author is not in the collection
 function inCollection() {
