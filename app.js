@@ -181,6 +181,7 @@ function authorSearch() {
 //this function will print the entire collection
 function printstoredCollection() {
   var data = JSON.parse(localStorage.getItem("books"));
+  document.getElementById("my-books").innerHTML = 'data';
   console.log("this is the entire collection:" + JSON.stringify(data));
   console.log();
 }
