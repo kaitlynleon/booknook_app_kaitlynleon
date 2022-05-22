@@ -18,6 +18,7 @@ local storage. The user will be able to perform the following functions:
 >>Sources: 
  Icons: https://fontawesome.com/
  CSS Styling: https://bootswatch.com/
+ Modal Code for Search Book Collection: https://sabe.io/tutorials/how-to-create-modal-popup-box
  
  >>>Inspiration: Traversy Media (https://www.youtube.com/watch?v=JaMCxVWtW58&t=903s)
 

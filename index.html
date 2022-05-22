@@ -59,7 +59,7 @@
           <tr>
             <th>Title</th>
             <th>Author</th>
-            <th>ISBN#</th>
+            <th>Series</th>
             <th>Remove</th>
             <th>Edit</th>
           </tr>
@@ -68,8 +68,7 @@
       </table>
 
       <br />
-   
-     
+
       <!-- Search Collection -->
       <div class="search-container col-12">
         <h2 class="display-4 text-center text-primary">
@@ -90,9 +89,7 @@
             class="btn-search btn hover btn-primary"
           />
 
-          <div id="customModal">
-            
-          </div>
+          <div id="customModal"></div>
 
           <div id="msg2">
             <pre>
@@ -103,6 +100,16 @@
             <button type="button" class="btn-results btn btn-secondary btn-sm">
               Close
             </button>
+
+            <!-- View Collection -->
+            <div class="search-container row justify-content-center">
+            <button class="trigger btn-info btn-lg">View Collection <i class="fa-solid fa-book-open-reader"></i></button>
+            <div class="book-modal">
+              <div class="book-modal-content">
+                <span class="book-close-button">&times;</span>
+                <h1>Hello, I am a modal!</h1>
+              </div>
+            </div>
           </div>
         </div>
       </div>

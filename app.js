@@ -150,6 +150,9 @@ document.querySelector("#search").addEventListener("submit2", (e) => {
   e.preventDefault();
 });
 
+// **********************************************************************//
+//public functions for search, edit, and print functions in local storage
+
 function authorSearch() {
   //store the user input in a variable
   const userSearch = document.querySelector("#search").value;
@@ -175,7 +178,7 @@ function authorSearch() {
     clearSearchBar();
   }
 }
-//this print the entire collection
+//this function will print the entire collection
 function printstoredCollection() {
   var data = JSON.parse(localStorage.getItem("books"));
   console.log("this is the entire collection:" + JSON.stringify(data));
@@ -188,16 +191,12 @@ function clearSearchBar() {
 
 function sortBooks() {}
 
-
-
-
 //gives message to user that the author is not in the collection
 function inCollection() {
   $("#customModal")
     .html("This Author is in your Book Collection!")
     .delay(3000)
     .fadeOut(300);
-
 }
 //gives message to user that the author is not in the collection
 function notInCollection() {
@@ -206,3 +205,23 @@ function notInCollection() {
     .delay(3000)
     .fadeOut(300);
 }
+
+// book collection modal 
+
+const modal = document.querySelector(".book-modal");
+const trigger = document.querySelector(".trigger");
+const closeButton = document.querySelector(".book-close-button");
+
+function toggleModal() {
+    modal.classList.toggle("book-show-modal");
+}
+
+function windowOnClick(event) {
+    if (event.target === modal) {
+        toggleModal();
+    }
+}
+
+trigger.addEventListener("click", toggleModal);
+closeButton.addEventListener("click", toggleModal);
+window.addEventListener("click", windowOnClick);
