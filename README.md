@@ -1,5 +1,5 @@
 # booknook_app_kaitlynleon
-// Author: Kaitlyn Leon | Last Updated: 5-13-2022 | CS3100 Final Project  //
+// Author: Kaitlyn Leon | Last Updated: 5-22-2022 | CS3100 Final Project  //
 
 This is my final project for CS3100: Data Structures and Algorithms. The goal of this project
 was to create a collection of key:value pairs and perform the functions outlined below. I 
